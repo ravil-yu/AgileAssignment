@@ -1,25 +1,57 @@
 package com.example.bank;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 public class AppTest {
 
     @Test
     public void testCalculateBalance() {
-        double expectedBalance = 50; 
-        double actualBalance = App.calculateBalance(); 
+        assertEquals(60, App.calculateBalance(), 0.001); // Use delta for double comparison
+    }
 
-        
-        assertEquals(expectedBalance, actualBalance, 0.001); 
+    @Test
+    public void testCalculateWithdrawSufficientBalance() {
+        assertEquals(10, App.calculateWithdraw(10), 0.001);
+        assertEquals(50, App.calculateBalance(), 0.001);
+    }
+
+    @Test
+    public void testCalculateWithdrawInsufficientBalance() {
+        assertEquals(0, App.calculateWithdraw(70), 0.001);
+        assertEquals(50, App.calculateBalance(), 0.001); // Balance remains unchanged
     }
 
     @Test
     public void testCalculateDeposit() {
-        double expectedDeposit = 80; 
-        double actualDeposit = App.calculateDeposit(); 
+        assertEquals(80, App.calculateDeposit(20), 0.001);
+        assertEquals(80, App.calculateBalance(), 0.001);
+    }
 
-       
-        assertEquals(expectedDeposit, actualDeposit, 0.001); 
+    @Test
+    public void testCalculateInterest() {
+        assertEquals(3, App.calculateInterest(), 0.001); // Correct the expected value
+    }
+
+    @Test
+    public void testIsBalanceBelowThreshold() {
+        assertTrue(App.isBalanceBelow(70));
+        assertFalse(App.isBalanceBelow(50));
+    }
+
+    @Test
+    public void testClearBalance() {
+        App.clearBalance();
+        assertEquals(0, App.calculateBalance(), 0.001);
+    }
+
+    @Test
+    public void testIsBalanceNegative() {
+        assertFalse(App.isBalanceNegative());
+        App.calculateWithdraw(70); // Withdraw more than balance
+        assertTrue(App.isBalanceNegative());
     }
 }
