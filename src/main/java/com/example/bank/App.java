@@ -1,6 +1,9 @@
 package com.example.bank;
+import java.util.Map;
+import java.util.logging.Logger;
 
 public class App {
+	private static final Logger logger = Logger.getLogger(Map.class.getName());
     private static double balance = 60;
     private static double interestRate = 0.05; // Assuming 5% interest rate
 
@@ -39,11 +42,15 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println("Initial balance: " + calculateBalance()+"\n"+"Withdrawn: " + calculateWithdraw(10)
-        +"\n"+"New balance after withdrawal: " + calculateBalance()+"\n"+"Deposited: " + calculateDeposit(20)
-        +"\n"+"New balance after deposit: " + calculateBalance()+"\n"+"Interest earned: " + calculateInterest()
-        +"\n"+"Is balance below 50? " + isBalanceBelow(50)+"\n"+"Is balance negative? " + isBalanceNegative());
+    	logger.info("Initial balance: " + calculateBalance());
+        logger.info("Withdrawn: " + calculateWithdraw(10));
+        logger.info("New balance after withdrawal: " + calculateBalance());
+        logger.info("Deposited: " + calculateDeposit(20));
+        logger.info("New balance after deposit: " + calculateBalance());
+        logger.info("Interest earned: " + calculateInterest());
+        logger.info("Is balance below 50? " + isBalanceBelow(50));
+        logger.info("Is balance negative? " + isBalanceNegative());
         clearBalance();
-        System.out.println("Balance after clearing: " + calculateBalance());
+        logger.info("Balance after clearing: " + calculateBalance());
     }
 }
