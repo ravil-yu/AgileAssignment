@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 public class App {
-	private static final Logger logger = Logger.getLogger(Map.class.getName());
+    private static final Logger logger = Logger.getLogger(Map.class.getName());
     private static double balance = 60;
     private static double interestRate = 0.05; // Assuming 5% interest rate
 
@@ -12,12 +12,16 @@ public class App {
     }
 
     public static double calculateWithdraw(double amount) {
-        if (amount > balance) {
-            System.out.println("Insufficient balance.");
+        try {
+            if (amount > balance) {
+                throw new IllegalArgumentException("Insufficient balance.");
+            }
+            balance -= amount;
+            return amount;
+        } catch (IllegalArgumentException e) {
+            logger.warning(e.getMessage());
             return 0;
         }
-        balance -= amount;
-        return amount;
     }
 
     public static double calculateDeposit(double amount) {
@@ -42,7 +46,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-    	logger.info("Initial balance: " + calculateBalance());
+        logger.info("Initial balance: " + calculateBalance());
         logger.info("Withdrawn: " + calculateWithdraw(10));
         logger.info("New balance after withdrawal: " + calculateBalance());
         logger.info("Deposited: " + calculateDeposit(20));
