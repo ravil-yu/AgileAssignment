@@ -39,14 +39,10 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println("Initial balance: " + calculateBalance());
-        System.out.println("Withdrawn: " + calculateWithdraw(10));
-        System.out.println("New balance after withdrawal: " + calculateBalance());
-        System.out.println("Deposited: " + calculateDeposit(20));
-        System.out.println("New balance after deposit: " + calculateBalance());
-        System.out.println("Interest earned: " + calculateInterest());
-        System.out.println("Is balance below 50? " + isBalanceBelow(50));
-        System.out.println("Is balance negative? " + isBalanceNegative());
+        System.out.println("Initial balance: " + calculateBalance()+"\n"+"Withdrawn: " + calculateWithdraw(10)
+        +"\n"+"New balance after withdrawal: " + calculateBalance()+"\n"+"Deposited: " + calculateDeposit(20)
+        +"\n"+"New balance after deposit: " + calculateBalance()+"\n"+"Interest earned: " + calculateInterest()
+        +"\n"+"Is balance below 50? " + isBalanceBelow(50)+"\n"+"Is balance negative? " + isBalanceNegative());
         clearBalance();
         System.out.println("Balance after clearing: " + calculateBalance());
     }

@@ -10,7 +10,7 @@ public class AppTest {
 
     @Test
     public void testCalculateBalance() {
-        assertEquals(60, App.calculateBalance(), 0.001); // Use delta for double comparison
+        assertEquals(60, App.calculateBalance(), 0.001); 
     }
 
     @Test
@@ -22,7 +22,7 @@ public class AppTest {
     @Test
     public void testCalculateWithdrawInsufficientBalance() {
         assertEquals(0, App.calculateWithdraw(70), 0.001);
-        assertEquals(50, App.calculateBalance(), 0.001); // Balance remains unchanged
+        assertEquals(50, App.calculateBalance(), 0.001); 
     }
 
     @Test
@@ -33,7 +33,7 @@ public class AppTest {
 
     @Test
     public void testCalculateInterest() {
-        assertEquals(3, App.calculateInterest(), 0.001); // Correct the expected value
+        assertEquals(3, App.calculateInterest(), 0.001); 
     }
 
     @Test
@@ -51,7 +51,7 @@ public class AppTest {
     @Test
     public void testIsBalanceNegative() {
         assertFalse(App.isBalanceNegative());
-        App.calculateWithdraw(70); // Withdraw more than balance
+        App.calculateWithdraw(70); 
         assertTrue(App.isBalanceNegative());
     }
 }
