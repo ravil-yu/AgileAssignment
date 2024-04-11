@@ -1,5 +1,4 @@
 package com.example.bank;
-import java.util.Map;
 import java.util.logging.Logger;
 
 public class App {
@@ -34,7 +33,4 @@ public class App {
         return balance < 0;
     }
 
-    public static void main(String[] args) {
-        
-    }
 }
