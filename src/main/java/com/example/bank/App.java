@@ -35,11 +35,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-        logger.info("Initial balance: " + calculateBalance());
-        logger.info("Withdrawn: " + calculateWithdraw(10));
-        logger.info("Deposited: " + calculateDeposit(20));
-        logger.info("Is balance below 50? " + isBalanceBelow(50));
-        logger.info("Is balance negative? " + isBalanceNegative());
-        logger.info("Balance after clearing: " + calculateBalance());
+        
     }
 }
