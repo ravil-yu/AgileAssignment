@@ -13,8 +13,7 @@ bin/
 *.iws
 .idea/
 
-# Maven
-target/
+
 
 # Gradle
 build
